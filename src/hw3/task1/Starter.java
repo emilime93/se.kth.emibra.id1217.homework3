@@ -7,10 +7,10 @@ public class Starter {
     public static void main(String[] args) {
         boolean fair = true;
         int numBabyBirds = 5;
-        int amountOfFood = Food.REFILL_AMOUNT;
+        int amountOfFood = Pot.REFILL_AMOUNT;
         Semaphore producerSem = new Semaphore(0, fair);
         Semaphore consumerSem = new Semaphore(1, fair);
-        Food food = new Food(amountOfFood);
+        Pot food = new Pot(amountOfFood);
 
         // Create the Bird parent and its children
         Parent parent = new Parent(producerSem, consumerSem, food);

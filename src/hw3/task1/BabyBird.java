@@ -8,10 +8,10 @@ public class BabyBird implements Runnable {
 
     private final Semaphore producerSem;
     private final Semaphore consumerSem;
-    private Food food;
+    private Pot food;
     private int myID;
 
-    public BabyBird(Semaphore producerSem, Semaphore consumerSem, Food food) {
+    public BabyBird(Semaphore producerSem, Semaphore consumerSem, Pot food) {
         this.producerSem = producerSem;
         this.consumerSem = consumerSem;
         this.food = food;
@@ -35,7 +35,7 @@ public class BabyBird implements Runnable {
                     consumerSem.release();
                 }
                 long sleepTime = (long) (Math.random() * 7000);
-                System.out.printf("Baby #%d sleeping for %f seconds\n", myID, sleepTime/1000.0);
+                System.out.printf("Baby #%d sleeping for %g seconds\n", myID, sleepTime/1000.0);
                 Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
                 e.printStackTrace();

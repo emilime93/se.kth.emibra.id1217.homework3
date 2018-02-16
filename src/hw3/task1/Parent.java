@@ -6,9 +6,9 @@ public class Parent implements Runnable {
 
     private final Semaphore producerSem;
     private final Semaphore consumerSem;
-    private Food food;
+    private Pot food;
 
-    public Parent(Semaphore producerSem, Semaphore consumerSem, Food food) {
+    public Parent(Semaphore producerSem, Semaphore consumerSem, Pot food) {
         this.producerSem = producerSem;
         this.consumerSem = consumerSem;
         this.food = food;

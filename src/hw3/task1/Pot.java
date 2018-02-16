@@ -1,12 +1,12 @@
 package hw3.task1;
 
-public class Food {
+public class Pot {
 
     public final static int REFILL_AMOUNT = 5;
 
     private int amount;
 
-    public Food(int amount) {
+    public Pot(int amount) {
         this.amount = amount;
     }
 
