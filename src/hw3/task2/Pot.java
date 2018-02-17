@@ -10,8 +10,8 @@ public class Pot {
             System.out.println("Tried to bring more honey, but the pot was full!");
             return false;
         }
-        System.out.printf("Bee #%d brought in one piece of honey, making it %.02f%% full.\n", bee.getID(), (double)amountOfFood/MAXIMUM_CAPACITY);
         amountOfFood++;
+        System.out.printf("Bee #%d brought in one piece of honey, making it %.0f%% full.\n", bee.getID(), ((double)amountOfFood/MAXIMUM_CAPACITY)*100);
         return true;
     }
 
