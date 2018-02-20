@@ -2,7 +2,7 @@ package hw3.task1;
 
 import java.util.concurrent.Semaphore;
 
-public class Starter {
+public class BirdStarter {
 
     public static void main(String[] args) {
         boolean fair = true;
