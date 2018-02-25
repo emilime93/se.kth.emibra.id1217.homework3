@@ -6,7 +6,7 @@ public class BeeStarter {
 
     public static void main(String[] args) {
         boolean fair = true;
-        int numBees = 5;
+        int numBees = 10;
         Semaphore consumerSem = new Semaphore(0, fair);
         Semaphore producerSem = new Semaphore(1, fair);
         Pot pot = new Pot();

@@ -6,7 +6,7 @@ public class BirdStarter {
 
     public static void main(String[] args) {
         boolean fair = true;
-        int numBabyBirds = 5;
+        int numBabyBirds = 10;
         int amountOfFood = Pot.REFILL_AMOUNT;
         Semaphore producerSem = new Semaphore(0, fair);
         Semaphore consumerSem = new Semaphore(1, fair);

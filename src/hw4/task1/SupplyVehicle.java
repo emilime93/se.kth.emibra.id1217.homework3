@@ -25,10 +25,10 @@ public class SupplyVehicle extends SpaceVehicle implements Runnable {
     public void run() {
         while (true) {
             if (cargoFuel.getAmountN() > 0 || cargoFuel.getAmountQ() > 0) {
-                System.out.println("---> Trying to refill...");
                 restockSpaceStation();
             } else {
-                System.out.println("---> Refilling mah own cargo");
+                System.out.println("SUPPLYVEHICLE: Refilling my cargo fuel on planet earth");
+                System.out.println();
                 cargoFuel.setAmountN(REFILL_N_CARGO_AMOUNT);
                 cargoFuel.setAmountQ(REFiLL_Q_CARGO_AMOUNT);
                 restockSpaceStation();

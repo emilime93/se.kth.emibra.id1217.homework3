@@ -2,7 +2,7 @@ package hw3.task2;
 
 public class Pot {
 
-    public static final int MAXIMUM_CAPACITY = 10;
+    public static final int MAXIMUM_CAPACITY = 2;
     private int amountOfFood = 0;
 
     public boolean addFood(Honeybee bee) {

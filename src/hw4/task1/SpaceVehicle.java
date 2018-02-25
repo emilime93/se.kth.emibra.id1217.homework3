@@ -28,7 +28,7 @@ public abstract class SpaceVehicle {
             System.out.println("i got interrupted!");
         }
         if (compositeFuel == null) {
-            System.out.println("NULL fuel, something wrong");
+            System.out.println("Got no fuel. But exited.");
         } else {
             myFuel.setAmountN(myFuel.getAmountN() + compositeFuel.getAmountN());
             myFuel.setAmountQ(myFuel.getAmountQ() + compositeFuel.getAmountQ());

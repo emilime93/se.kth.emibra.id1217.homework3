@@ -8,8 +8,6 @@ public class SpaceStation {
 
     private int currentVisitors = 0;
 
-    private Object restockLock = new Object();
-    private Object criticalLock = new Object();
     private Object concurrentLock = new Object();
 
     private volatile int currentNAmount;
@@ -49,7 +47,7 @@ public class SpaceStation {
 
         synchronized (concurrentLock) {
             currentVisitors--;
-            concurrentLock.notify();
+            concurrentLock.notifyAll();
         }
 
         return new CompositeFuel(requestedFuel.getAmountN(), requestedFuel.getAmountQ());
@@ -83,7 +81,7 @@ public class SpaceStation {
             System.out.printf("SPACESTATION: Fuel: N= %d Q= %d\n", currentNAmount, currentQAmount);
             System.out.println();
             currentVisitors--;
-            concurrentLock.notify();
+            concurrentLock.notifyAll();
         }
     }
 
