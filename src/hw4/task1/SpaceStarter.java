@@ -4,10 +4,10 @@ public class SpaceStarter {
 
     public static void main(String[] args) {
         // Create space station with initial fuel
-        SpaceStation spaceStation = new SpaceStation(200, 200);
+        SpaceStation spaceStation = new SpaceStation(500, 500, 1000, 700);
 
-        int numberOfSpaceships = 6;
-        int numberOfSupplyVehicles = 1;
+        int numberOfSpaceships = 20;
+        int numberOfSupplyVehicles = 3;
 
         // Create a couple of spaceships and initialize them
         // And one supply vehicle

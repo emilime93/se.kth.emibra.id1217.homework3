@@ -1,8 +1,11 @@
 package hw4.task1;
 
-public abstract class SpaceVehicle {
+public class SpaceVehicle {
 
     private static int id = 0;
+
+    private static final int N_REFUEL_AMOUNT = 50;
+    private static final int Q_REFUEL_AMOUNT = 50;
 
     private int myID;
     private CompositeFuel myFuel;
@@ -15,11 +18,12 @@ public abstract class SpaceVehicle {
     }
 
     public void refuel() {
-        CompositeFuel requestedFuel = new CompositeFuel(50 ,50);
+        CompositeFuel requestedFuel = new CompositeFuel(N_REFUEL_AMOUNT,Q_REFUEL_AMOUNT);
         CompositeFuel compositeFuel = null;
 
-        System.out.printf("SPACEVEHICLE: Before #%d got N= %d Q= %d\n", myID, myFuel.getAmountN(), myFuel.getAmountQ());
-        System.out.println();
+//        System.out.printf("SPACEVEHICLE: Before #%d got N= %d Q= %d\n", myID, myFuel.getAmountN(), myFuel.getAmountQ());
+//        System.out.println();
+//        for (int i = 0; i < 1000000000; i++);
 
         try {
             compositeFuel = spaceStation.getFuel(requestedFuel, this);
@@ -36,10 +40,6 @@ public abstract class SpaceVehicle {
             System.out.printf("SPACEVEHICLE: After #%d got N= %d Q= %d\n", myID, myFuel.getAmountN(), myFuel.getAmountQ());
             System.out.println();
         }
-    }
-
-    protected CompositeFuel getMyFuel() {
-        return this.myFuel;
     }
 
     public int getID() {
