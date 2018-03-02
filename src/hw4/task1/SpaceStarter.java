@@ -26,6 +26,7 @@ public class SpaceStarter {
             spaceshipThreads[i] = new Thread(spaceship[i]);
             spaceshipThreads[i].start();
         }
+
         Thread[] supplyThreads = new Thread[supplyVehicles.length];
         for (int i = 0; i < supplyThreads.length; i++) {
             supplyThreads[i] = new Thread(supplyVehicles[i]);

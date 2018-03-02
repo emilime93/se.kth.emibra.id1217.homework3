@@ -21,6 +21,7 @@ public class SpaceStation {
     }
 
     public synchronized CompositeFuel getFuel(CompositeFuel requestedFuel, SpaceVehicle spaceVehicle) throws InterruptedException {
+//        System.out.println("im here");
         boolean enough = requestedFuel.getAmountN() <= currentNAmount && requestedFuel.getAmountQ() <= currentQAmount;
         while (currentVisitors == MAX_CONCURRENT_VEHICLES || !enough) {
             wait();
@@ -42,26 +43,28 @@ public class SpaceStation {
 
         currentVisitors--;
         notifyAll();
-
         return new CompositeFuel(requestedFuel.getAmountN(), requestedFuel.getAmountQ());
     }
 
     public synchronized void restockFuel(CompositeFuel deliveredFuel, SupplyVehicle supplyVehicle) throws InterruptedException {
-        while (currentVisitors >= MAX_CONCURRENT_VEHICLES) {
-            wait();
-        }
-        currentVisitors++;
-
         int restockedN = deliveredFuel.getAmountN();
         int restockedQ =  deliveredFuel.getAmountQ();
 
         boolean fuelFits = ((restockedN + currentNAmount) <= MAX_NITROGEN_CAPACITY) &&
                 ((restockedQ + currentQAmount) <= MAX_QUANTUM_CAPACITY);
-        while (!fuelFits) {
+
+        while (currentVisitors >= MAX_CONCURRENT_VEHICLES || !fuelFits) {
             wait();
             fuelFits = ((restockedN + currentNAmount) <= MAX_NITROGEN_CAPACITY) &&
                     ((restockedQ + currentQAmount) <= MAX_QUANTUM_CAPACITY);
         }
+        currentVisitors++;
+
+
+//        while (!fuelFits) {
+//            wait();
+//
+//        }
         this.currentNAmount += restockedN;
         this.currentQAmount += restockedQ;
         deliveredFuel.setAmountN(0);

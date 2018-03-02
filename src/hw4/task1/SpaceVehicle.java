@@ -23,7 +23,14 @@ public class SpaceVehicle {
 
 //        System.out.printf("SPACEVEHICLE: Before #%d got N= %d Q= %d\n", myID, myFuel.getAmountN(), myFuel.getAmountQ());
 //        System.out.println();
+
 //        for (int i = 0; i < 1000000000; i++);
+
+//        try {
+//            Thread.sleep(1);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
         try {
             compositeFuel = spaceStation.getFuel(requestedFuel, this);
